@@ -1,0 +1,55 @@
+nav#menu.navigation.non-print
+	div.container
+		.navbar-header
+			a.navbar-brand(href="#") Resumake
+			button.navbar-toggle(ng-init="isCollapsed = false" ng-click="isCollapsed = !isCollapsed") Menu
+		.navbar-collapse(ng-class="{collapse: isCollapsed}")
+			ul.nav.navbar-nav
+				li.active(ng-class="{ active: isActive('/')}")
+					span.sr-only Current
+					a(href="/#") Home
+				li(ng-class="{ active: isActive('/resume')}")
+					span.sr-only Resume
+					a(href="/#") Resume
+				li(ng-class="{ active: isActive('/portfolio')}")
+					span.sr-only Porfolio
+					a(href="/#") Porfolio
+				li(ng-class="{ active: isActive('/contact')}")
+					span.sr-only Contact
+					a(href="/#") Contact
+				li.dropdown
+					a.dropdown-toggle( data-toggle="dropdown" role="button" aria-expanded="false" href="#") Social
+						span.caret
+					ul.dropdown-menu(role="menu")
+						li.dropdown-header(role="presentation") Get to know me better
+						li.divider
+						li
+							a(href="https://github.com/psychojoe" target="_blank")
+								span.glyphicon.glyphicon-qrcode
+								span &nbsp;| Github
+						li
+							a(href="http://www.codewars.com/users/psychojoe" target="_blank")
+								span.glyphicon.glyphicon-fire
+								span &nbsp;| Code Wars
+						li
+							a(href="http://instagram.com/profile_4714" target="_blank")
+								span.glyphicon.glyphicon-camera
+								span &nbsp;| Instagram
+						li
+							a(href="https://www.linkedin.com/pub/josef-aguilar/21/161/621" target="_blank")
+								span.glyphicon.glyphicon-barcode
+								span &nbsp;| LinkedIn
+						li
+							a(href="https://twitter.com/psychojoe" target="_blank")
+								span.glyphicon.glyphicon-plane
+								span &nbsp;| Twitter
+						li
+							a(href="https://www.facebook.com/profile.php?id=100008205554252" target="_blank")
+								span.glyphicon.glyphicon-thumbs-up
+								span &nbsp;| Facebook
+				form.navbar-form.navbar-left(role="search")
+					.form-group
+						label.sr-only search
+						span.glyphicon.glyphicon-search
+						input.form-control(placeholder="search" type="text" popover-placement="right" popover="Searching for: [[search.$]]" popover-trigger="focus" ng-model="search.$")
+						

@@ -1,0 +1,14 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "eqnull": true,
+  "forin": true,
+  "freeze":true,
+  "nonbsp":true,
+  "undef": true,
+  "unused": true,
+  "globals": {
+    "jQuery": true,
+    "module": true
+  }
+}

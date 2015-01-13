@@ -1,0 +1,215 @@
+.row#location
+	.container
+		.col-lg-4.col-xs-12.non-print
+			ul.list-unstyled.list-inline.nav.nav-pills.text-center
+				li(role="presentation")
+					a(href="#contact") Contact
+				li(role="presentation")
+					a(href="#education") Education
+				li(role="presentation")
+					a(href="#experience") Experience
+				li(role="presentation")
+					a(href="#internships") Internships
+				li(role="presentation")
+					a(href="#skills") Skills
+
+.jumbotron.large-image
+	h1.text-center.text-uppercase
+		span(ng-bind="info.personal.firstname") loading...
+		span &nbsp;
+		span(ng-bind="info.personal.lastname") loading...
+		br
+		small(ng-bind="info.personal.title")
+	p.text-center.text-uppercase 
+		a(href="tel:+13126239462")
+			span(ng-bind="info.personal.phonenumber")
+			span &nbsp;
+			span.glyphicon.glyphicon-phone-alt
+		span &nbsp;&nbsp;|&nbsp;
+		a(ng-href="mailto:[[info.personal.email]]")
+			span(ng-bind="info.personal.email")
+			span &nbsp;
+			span.glyphicon.glyphicon-envelope
+		span &nbsp;&nbsp;|&nbsp;
+		a.disabled(tooltip="Coming Soon!", tooltip-placement="top" tooltip-trigger="mouseenter" tooltip-popup-delay="0" ng-href="[[info.personal.website]]")
+			span(ng-bind="info.personal.website")
+			span &nbsp;
+			span.glyphicon.glyphicon-globe
+
+// Education
+.col-md-12.description-bar
+	h2#education.text-uppercase.text-center Education
+	.container.non-print
+		form.form-horizontal(role="search")
+			.form-group
+				label.col-md-2.control-label Search:
+				input(type="text", placeholder="Search Education", ng-model="searcher.$")
+
+
+//- Change the colors here
+.container
+	.panel.panel-success(ng-controller="colCtrl",ng-repeat="edu in info.education | filter:searcher",tooltip="Click to expand",tooltip-placement="top",tooltip-trigger="mouseenter",tooltip-popup-delay="1000" )
+		.panel-heading(ng-click="isCollapsed = !isCollapsed")
+			.row
+				.col-xs-12.col-md-4.col-lg-4.pull-left.print-panel-col
+					h2(ng-bind="edu.school") ...loading
+				.col-xs-12.col-md-5.col-lg-4.print
+					h2
+						small
+							strong(ng-bind="edu.focus")
+				.col-xs-12.col-md-3.col-lg-4.print.pull-right
+					small
+						b(ng-bind="edu.dates.from")
+						span &nbsp;to&nbsp;
+						b(ng-bind="edu.dates.to")
+				//.clearfix
+		.panel-body(collapse="isCollapsed")
+			h4.non-print Details
+			hr
+			ul.list-unstyled
+				li
+					p Graduated:&nbsp;
+						span(ng-bind="edu.graduated")
+				li
+					p Degree:&nbsp;
+						span(ng-bind="edu.degree")
+		.panel-footer.text-center
+			a(tooltip="Phone number", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="tel:[[edu.phone]]")
+				span(ng-bind="edu.phone")
+				span &nbsp;
+				span.glyphicon.glyphicon-phone
+			span &nbsp;&nbsp;|&nbsp;
+			a(tooltip="Web address", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="[[edu.website]]", target="_blank") 
+				span(ng-bind="edu.school")
+				span &nbsp;
+				span.glyphicon.glyphicon-globe
+			span &nbsp;&nbsp;|&nbsp;
+			a(tooltip="Address", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="[[edu.loc]]", target="_blank") 
+				span(ng-bind="edu.address")
+				span &nbsp;
+				span.glyphicon.glyphicon-map-marker
+// Experience
+.col-md-12.description-bar
+	h2#experience.text-uppercase.text-center Experience
+	.container.non-print
+		form.form-horizontal(role="search")
+			.form-group
+				label.col-md-2.control-label Search:
+				input(type="text", placeholder="Search Experience", ng-model="search.$")
+
+
+//- Change the colors here 
+.container
+	.panel.panel-info(
+		ng-controller="colCtrl", 
+		ng-repeat="job in info.experience | filter:searcher", 
+		tooltip="Click to expand", 
+		tooltip-placement="top", 
+		tooltip-trigger="mouseenter", 
+		tooltip-popup-delay="1000" 
+	)
+		.panel-heading(ng-click="isCollapsed = !isCollapsed")
+			.row
+				.col-xs-12.col-md-4.col-lg-4.pull-left.print-panel-col
+					h2(ng-bind="job.name") ...loading
+				.col-xs-12.col-md-5.col-lg-4.print
+					h2
+						small
+							strong(ng-bind="job.position")
+				.col-xs-12.col-md-3.col-lg-4.print.pull-right
+					small
+						b(ng-bind="job.dates.from")
+						span &nbsp;to&nbsp;
+						b(ng-bind="job.dates.to")
+				.clearfix
+
+		.panel-body(collapse="isCollapsed")
+			h4.non-print Accomplishments
+			hr
+			ul.list-unstyled
+				li(ng-repeat="role in job.roles")
+					p(ng-bind="role") Loading roles...
+		.panel-footer.text-center
+			a(tooltip="Phone number", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="tel:[[job.phone]]")
+				span(ng-bind="job.phone")
+				span &nbsp;
+				span.glyphicon.glyphicon-phone
+			span &nbsp;&nbsp;|&nbsp;
+			a(tooltip="Web address", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="[[job.website]]", target="_blank")
+				span(ng-bind="job.name")
+				span &nbsp;
+				span.glyphicon.glyphicon-globe
+			span &nbsp;&nbsp;|&nbsp;
+			a(tooltip="Address", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="[[job.loc]]", target="_blank")
+				span(ng-bind="job.address")
+				span &nbsp;
+				span.glyphicon.glyphicon-map-marker
+
+// Internships
+.col-md-12.description-bar
+	h2#internships.text-uppercase.text-center Internships
+	.container.non-print
+		form.form-horizontal(role="search")
+			.form-group
+				label.col-md-2.control-label Search:
+				input(type="text", placeholder="Search Internships", ng-model="searchin.$")
+
+
+//- Change the colors here 
+.container
+	.panel.panel-danger(
+		ng-controller="colCtrl", 
+		ng-repeat="int in info.internships | filter:searchin", 
+		tooltip="Click to expand", 
+		tooltip-placement="top", 
+		tooltip-trigger="mouseenter", 
+		tooltip-popup-delay="1000" 
+	)
+		.panel-heading(ng-click="isCollapsed = !isCollapsed")
+			.row
+				.col-xs-12.col-md-4.col-lg-4.pull-left.print-panel-col
+					h2(ng-bind="int.name") ...loading
+				.col-xs-12.col-md-5.col-lg-4.print
+					h2
+						small
+							strong(ng-bind="int.position")
+				.col-xs-12.col-md-3.col.lg-4-print.pull-right
+					small
+						b(ng-bind="int.dates.from")
+						span &nbsp;to&nbsp;
+						b(ng-bind="int.dates.to")
+				.clearfix
+
+		.panel-body(collapse="isCollapsed")
+			h4.non-print Accomplishments
+			hr
+			ul.list-unstyled
+				li(ng-repeat="role in int.roles")
+					p(ng-bind="role") Loading roles...
+					
+
+		.panel-footer.text-center
+			a(tooltip="Web address", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="[[int.website]]", target="_blank")
+				span(ng-bind="int.name")
+				span &nbsp;
+				span.glyphicon.glyphicon-map-marker
+			span &nbsp;&nbsp;|&nbsp;
+			a(tooltip="Address", tooltip-placement="top", tooltip-trigger="mouseenter", tooltip-popup-delay="1000", ng-href="[[int.loc]]", target="_blank")
+				span(ng-bind="int.address") [[int.address]]
+				span &nbsp;
+				span.glyphicon.glyphicon-map-marker
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

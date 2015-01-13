@@ -1,0 +1,32 @@
+# Github Node Default
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+blank_tpl.js
+
+pids
+logs
+results
+data
+
+npm-debug.log
+node_modules
+
+# SANE defaults
+bower_components/
+.DS_Store
+.nodemonignore
+.sass_cache/
+node_modules/
+public/lib
+test/coverage/
+migrations/
+
+*.local

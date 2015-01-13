@@ -1,0 +1,24 @@
+.herotronathon
+  .container
+    h1 This is amazing! 
+    span.flag
+        strong
+        | Signup today!
+    div.form
+      form.form-horizontal(method="post", action="/api")
+        input.form-control(type="text" name="username" placeholder="Username")
+        button.btn.btn-lg.btn-danger(type="submit") Send
+      
+      if user
+        div.welcome
+          p.
+            Welcome, #{user.name} 
+      else
+        div.login
+          h2 Login to get exclusive access!
+          form(name="login" action="/login" method="post")
+            label(for="user")
+            input(type="text", name="user", placeholder="username")
+            label(for="password") 
+            input(type="password", name="password", placeholder="password")
+            input.btn.btn-xs.btn-warning(type="submit", value="login")

@@ -1,0 +1,6 @@
+// skills.jade
+.col-md-12.page-break(ng-controller="skillCtrl")
+	h2#skills.text-uppercase.text-center Skills
+hr
+.container.skill-container(ng-controller="skillCtrl")
+	skillbar(ng-repeat="skill in skillset")
