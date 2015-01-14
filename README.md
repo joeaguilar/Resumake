@@ -12,6 +12,24 @@ into a directory, then make sure to
 
 `npm install`
 
+modify the social links in
+`views/includes/navigation.jade`
+
+```jade
+//example
+a(href="https://github.com/psychojoe" target="_blank")
+								span.glyphicon.glyphicon-qrcode
+								span &nbsp;| Github
+```
+to
+
+```jade
+//changed example
+a(href="https://github.com/SOMEUSER" target="_blank")
+								span.glyphicon.glyphicon-qrcode
+								span &nbsp;| Github
+```
+
 then create a directory called "data" in the main directory and create "info.json" and "skills.json" with the following format
 
 ```javascript
