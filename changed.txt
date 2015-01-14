@@ -1,0 +1,4 @@
+ You can add these line to scripts in package.json to run the desired processes 
+
+ // "test": "echo \"Error: no test specified\" && exit 1",
+ //"postinstall": "./node_modules/.bin/grunt"
