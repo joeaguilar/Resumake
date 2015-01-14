@@ -26,7 +26,7 @@ var	flash = require('connect-flash');
 var port = process.env.PORT || 1221;
 
 
-app.use(favicon(__dirname + '/favicons/favicon.ico'));
+app.use(favicon(__dirname + '/public/favicons/favicon.ico'));
 // app.use(logger('combined'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
