@@ -21,7 +21,7 @@
 		br
 		small(ng-bind="info.personal.title")
 	p.text-center.text-uppercase 
-		a(href="tel:+13126239462")
+		a(ng-href="tel:[[info.personal.phonenumber]]")
 			span(ng-bind="info.personal.phonenumber")
 			span &nbsp;
 			span.glyphicon.glyphicon-phone-alt
